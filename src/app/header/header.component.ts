@@ -13,6 +13,9 @@ export class HeaderComponent implements OnInit {
   }
 
   private collapseMenu(){
-    document.getElementById("toggle").click();
+    let menuIcon = document.getElementsByClassName("show");
+    if(menuIcon.length>0){
+      document.getElementById("toggle").click();
+    }
   }
 }
