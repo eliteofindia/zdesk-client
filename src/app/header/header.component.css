@@ -3,5 +3,11 @@
 }
 
 .nav-link{
-    color: aliceblue;    
+    color: aliceblue !important;    
+}
+
+.welcome{
+    text-align: center;
+    font-size: 1rem !important;
+    font-weight: bold;
 }

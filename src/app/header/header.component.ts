@@ -12,4 +12,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  private collapseMenu(){
+    document.getElementById("toggle").click();
+  }
 }
