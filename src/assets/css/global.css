@@ -1,3 +1,36 @@
-body{
+.row{
+    padding-bottom: 1rem;
+}
+
+body{    
+    background-color: aliceblue;
+    color:  cadetblue;
     padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.button {
+
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: aliceblue;
+}
+
+.link, .link:hover{
+    color:cadetblue;
+    text-decoration-line: none !important;
+}
+
+.right{
+
+    float: right;
+}
+
+sub{
+    bottom: -.8rem;
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
 }
