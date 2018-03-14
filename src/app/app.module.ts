@@ -11,6 +11,7 @@ import { DangerComponent } from './danger/danger.component';
 
 
 import { AppRoutingModule, routingcomponents } from './app-routing.module';
+import { ProgressComponent } from './progress/progress.component';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { AppRoutingModule, routingcomponents } from './app-routing.module';
     FooterComponent,
     WarningComponent,
     DangerComponent,    
-    routingcomponents,        
+    routingcomponents, ProgressComponent,        
   ],
   providers: [],
   bootstrap: [AppComponent]
