@@ -13,7 +13,11 @@ export class ProgressComponent implements OnInit {
   ngOnInit() {
   }
 
-  private closeProgress(){
+  public closeProgress(){
     this.showProgress = false;
+  }
+
+  public getProgressStatus(){
+    return this.showProgress;
   }
 }

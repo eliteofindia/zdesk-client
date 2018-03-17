@@ -25,8 +25,9 @@ import { ProgressComponent } from './progress/progress.component';
     HeaderComponent,
     FooterComponent,
     WarningComponent,
-    DangerComponent,    
-    routingcomponents, ProgressComponent,        
+    DangerComponent, 
+    ProgressComponent,   
+    routingcomponents        
   ],
   providers: [],
   bootstrap: [AppComponent]

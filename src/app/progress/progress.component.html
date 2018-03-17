@@ -1,4 +1,4 @@
-<div *ngIf="showProgress" class="container">
+<div *ngIf="getProgressStatus()" class="container">
     <div class="row">
           <div class="animationload">
               <div (click)="closeProgress()" class="osahanloading"></div>

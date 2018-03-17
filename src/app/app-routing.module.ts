@@ -7,6 +7,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ComplaintComponent } from './complaint/complaint.component';
 import { PasswordComponent } from './password/password.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'home', pathMatch:'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'report', component: ComplaintComponent },
   { path: 'password', component: PasswordComponent },
+  { path: 'contactus', component: ContactusComponent },
   { path: '**', component: Error404Component }
 ];
 
@@ -25,4 +27,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingcomponents =[HomeComponent, Error404Component, SigninComponent, SignupComponent, ComplaintComponent, PasswordComponent];
+export const routingcomponents =[HomeComponent, Error404Component, SigninComponent, SignupComponent, ComplaintComponent, PasswordComponent, ContactusComponent];
