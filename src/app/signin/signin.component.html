@@ -1,69 +1,47 @@
 <div class="container">
-    <form class="form-horizontal" #signinForm="ngForm" (ngSubmit)="attemptSignin(signinForm)">
-        <div class="row">
-
-            <div class="col-md-6">
-                <h2>Please Login</h2>
-                <sub>You can login with email or phone number</sub>
-                <hr>
-            </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Please Login</h2>
+            <sub>You can login with email or phone number</sub>
+            <hr>
         </div>
-        <div class="row">
-            <div _ngcontent-c3="" class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <label class="" for="email">E-Mail Address:</label>
-                    <input type="text" ngModel name="email" class="form-control" id="email" placeholder="you@example.com" >
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div _ngcontent-c3="" class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    OR
-                </div>
-            </div>
-        </div>
-        <div class="row">
+    </div>
 
-            <div _ngcontent-c3="" class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <label class="" for="email">Phone Number:</label>
-                    <input type="text" ngModel name="mobile" class="form-control" id="mobile" placeholder="9676543210" >
-                </div>
-            </div>
-        </div>
-        <div class="row">
+</div>
 
-            <div _ngcontent-c3="" class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <label class="" for="password">Password:</label>
-                    <input type="password" ngModel name="password" class="form-control" id="password" placeholder="password" >
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-6">
-                <div class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <label class="form-check-label">
-                        <input ngModel class="" name="remember" type="checkbox">
-                        <span>Remember me</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <button type="submit" class="btn button">
-                        <i class="fa fa-sign-in"></i> Sign-in</button>
-                    <div class="right">
-                        <a class="link" routerLink="/password">Forgot Your Password?</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form #signinFrom="ngForm" (ngSubmit)="attemptSignin(signinFrom)">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">
+                                    Email Address</label>
+                                <input type="email" ngModel class="form-control" name="emailAddress" id="email" placeholder="Enter email" />
+                            </div>
+                            <div class="group">
+                                OR
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">
+                                    Phone</label>
+                                <input type="text" ngModel class="form-control" id="phone" name="mobileNo" placeholder="9876543210" />
+                            </div>
+                            <div class="form-group">
+                                <label for="name">
+                                    password</label>
+                                <input type="password" ngModel class="form-control" id="password" name="password" placeholder="password" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn button" id="btnSignin">
+                                sign-in</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-    </form>
+    </div>
 </div>

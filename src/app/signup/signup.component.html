@@ -1,86 +1,71 @@
 <div class="container">
-    <form class="form-horizontal" #signupForm="ngForm" (ngSubmit)="registerUser(signupForm)">
-        <div class="row">
-
-            <div class="col-md-6">
-                <h2>Register</h2>
-                <sub>Please fill the details and click register</sub>
-                <hr>
-            </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Register</h2>
+            <sub>Please fill the details and click register</sub>
+            <hr>
         </div>
-
-        <div class="row">
-
-            <div _ngcontent-c3="" class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <label class="" for="email">Name:</label>
-                    <input type="text" ngModel name="name" class="form-control" id="name" placeholder="John Doe" >
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div _ngcontent-c3="" class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <label class="" for="email">E-Mail Address:</label>
-                    <input type="text" ngModel name="email" class="form-control" id="email" placeholder="you@example.com" >
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div _ngcontent-c3="" class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <label class="" for="email">Phone Number:</label>
-                    <input type="text" ngModel name="mobile" class="form-control" id="mobile" placeholder="9676543210" >
-                </div>
-            </div>
-        </div>
-        <div class="row">
-
-            <div _ngcontent-c3="" class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <label class="" for="password">Password:</label>
-                    <input type="password" ngModel name="password" class="form-control" id="password" placeholder="password" >
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div _ngcontent-c3="" class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <label class="" for="password">Confirm Password:</label>
-                    <input type="password" ngModel name="confirm_password" class="form-control" id="confirm_password" placeholder="confirm password">
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div _ngcontent-c3="" class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <div class="form-group">
-                        <label class="" for="password">Choose User Type</label>
-                        <select ngModel name="userType" class="form-control" id="userType" >
-                            <option value="" selected="">Choose One:</option>
-                            <option value="organisation" >Organisation</option>
-                            <option value="voluntier">Voluntier</option>
-                        </select>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form #signupForm="ngForm" (ngSubmit)="registerUser(signupForm)">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="" for="email">Name:</label>
+                        <input type="text" ngModel name="name" class="form-control" id="name" placeholder="John Doe">
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row">
-
-            <div class="col-md-6">
-                <div _ngcontent-c3="" class="form-check mb-2 mr-sm-2 mb-sm-0">
-                    <button type="submit" class="btn button">
-                        <i class="fa fa-sign-in"></i>Register</button>
+                <div class="row">
+                    <div _ngcontent-c3="" class="col-md-6">
+                        <label class="" for="email">E-Mail Address:</label>
+                        <input type="text" ngModel name="email" class="form-control" id="email" placeholder="you@example.com">
+                    </div>
                 </div>
-            </div>
+
+                <div class="row">
+                    <div _ngcontent-c3="" class="col-md-6">
+                        <label class="" for="email">Phone Number:</label>
+                        <input type="text" ngModel name="mobile" class="form-control" id="mobile" placeholder="9676543210">
+                    </div>
+                </div>
+                <div class="row">
+                    <div _ngcontent-c3="" class="col-md-6">
+                        <label class="" for="password">Password:</label>
+                        <input type="password" ngModel name="password" class="form-control" id="password" placeholder="password">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div _ngcontent-c3="" class="col-md-6">
+                        <label class="" for="password">Confirm Password:</label>
+                        <input type="password" ngModel name="confirm_password" class="form-control" id="confirm_password" placeholder="confirm password">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div _ngcontent-c3="" class="col-md-6">
+                        <div class="form-group">
+                            <label class="" for="password">Choose User Type</label>
+                            <select ngModel name="userType" class="form-control" id="userType">
+                                <option value="" selected="">Choose One:</option>
+                                <option value="organisation">Organisation</option>
+                                <option value="voluntier">Voluntier</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <button type="submit" class="btn button">
+                            <i class="fa fa-sign-in"></i>Register</button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>

@@ -14,7 +14,7 @@ export class SigninComponent implements OnInit {
   }
 
   public attemptSignin( signinFrom : NgForm){
-
+    console.log(signinFrom.value);
   }
 
 }
