@@ -22,7 +22,7 @@ import { environment } from '../environments/environment.prod';
     BrowserModule,
     CommonModule,
     FormsModule,
-    environment.production ? ServiceWorkerModule.register('serviceworkerconf.json') : [],
+    environment.production ? ServiceWorkerModule.register('ngsw-config.json') : [],
     AppRoutingModule
   ],
   declarations: [
