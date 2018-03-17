@@ -14,7 +14,7 @@ import { DangerComponent } from './danger/danger.component';
 
 import { AppRoutingModule, routingcomponents } from './app-routing.module';
 import { ProgressComponent } from './progress/progress.component';
-import { environment } from '../environments/environment.prod';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { environment } from '../environments/environment.prod';
     BrowserModule,
     CommonModule,
     FormsModule,
-    environment.production ? ServiceWorkerModule.register('ngsw-config.json') : [],
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     AppRoutingModule
   ],
   declarations: [
