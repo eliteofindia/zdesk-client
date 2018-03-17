@@ -4,20 +4,22 @@
 
 body{    
     background-color: aliceblue;
-    color:  cadetblue;
-    padding-top: 70px;
+    color:  mediumseagreen;
+    padding-top: 90px;
     padding-bottom: 70px;
 }
 
 .button {
 
-    background-color: #17a2b8;
-    border-color: #17a2b8;
+    /* background-color: #17a2b8;
+    border-color: #17a2b8; */
+    background-color: mediumseagreen;
+    border-color: mediumseagreen;
     color: aliceblue;
 }
 
 .link, .link:hover{
-    color:cadetblue;
+    color:mediumseagreen;
     text-decoration-line: none !important;
 }
 
