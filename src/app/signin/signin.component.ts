@@ -17,4 +17,9 @@ export class SigninComponent implements OnInit {
     console.log(signinFrom.value);
   }
 
+  public clearStyleOfSignIn(){
+    let navItem = document.getElementById("signin");
+    navItem.classList.remove("active");
+  }
+
 }

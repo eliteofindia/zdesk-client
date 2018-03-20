@@ -34,10 +34,16 @@
                                     password</label>
                                 <input type="password" ngModel class="form-control" id="password" name="password" placeholder="password" />
                             </div>
-                        </div>
-                        <div class="col-md-12">
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             <button type="submit" class="btn button" id="btnSignin">
                                 sign-in</button>
+                        </div>
+                         <div class="col-md-6">
+                            <a class="link" (click)="clearStyleOfSignIn()"routerLink="/password" id="forgotpassword">
+                                forgot password?</a>
                         </div>
                     </div>
                 </form>
@@ -45,3 +51,5 @@
         </div>
     </div>
 </div>
+<app-danger></app-danger>
+<app-warning></app-warning>

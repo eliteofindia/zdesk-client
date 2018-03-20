@@ -1,0 +1,7 @@
+#dangerModal{
+    display: block;
+}
+#dangerModal > div > div{
+    background: crimson !important;
+    color: aliceblue !important;
+}
