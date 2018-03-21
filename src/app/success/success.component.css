@@ -1,0 +1,7 @@
+#successModal{
+    display: block;
+}
+#successModal > div > div{
+    background: green !important;
+    color: aliceblue !important;
+}

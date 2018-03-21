@@ -16,6 +16,7 @@ import { AppRoutingModule, routingcomponents } from './app-routing.module';
 import { ProgressComponent } from './progress/progress.component';
 import { environment } from '../environments/environment';
 import { IssuelistComponent } from './issuelist/issuelist.component';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,7 @@ import { IssuelistComponent } from './issuelist/issuelist.component';
     DangerComponent, 
     ProgressComponent, 
     IssuelistComponent,  
-    routingcomponents,        
+    routingcomponents, SuccessComponent,        
   ],
   providers: [],
   bootstrap: [AppComponent]

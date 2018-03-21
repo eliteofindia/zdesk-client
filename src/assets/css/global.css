@@ -36,3 +36,8 @@ sub{
     height: 50px;
     width: 40px;
 }
+
+.heading{
+    color: indigo;
+    text-align: center;
+}
