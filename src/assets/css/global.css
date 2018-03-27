@@ -29,7 +29,14 @@ body{
 }
 
 sub{
-    bottom: -.8rem;
+    bottom: -2rem;
+    float: left;
+}
+
+sub.content{
+    float: none;
+    bottom: -0.8rem;
+    position: relative;    
 }
 
 .logo{

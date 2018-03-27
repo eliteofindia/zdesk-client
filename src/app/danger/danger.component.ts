@@ -14,7 +14,7 @@ export class DangerComponent implements OnInit {
   ngOnInit() {
     this.title = "Sample Title";
     this.errorMsg = "sample error message";
-    this.showModal = true;
+    this.showModal = false;
   }
 
   dismiss(){

@@ -16,7 +16,7 @@ export class WarningComponent implements OnInit {
   ngOnInit() {
     this.title = "Sample Title";
     this.warningMsg = "sample warning message";
-    this.showModal = true;
+    this.showModal = false;
   }
 
   dismiss(){

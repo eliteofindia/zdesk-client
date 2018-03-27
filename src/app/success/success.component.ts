@@ -14,7 +14,7 @@ export class SuccessComponent implements OnInit {
   ngOnInit() {
     this.title = "Sample Title";
     this.successMsg = "sample error message";
-    this.showModal = true;
+    this.showModal = false;
   }
 
   dismiss(){
