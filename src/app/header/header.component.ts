@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
+
+import 'rxjs/add/operator/filter';
+import { TokenService } from '../common/service/token.service';
 
 @Component({
   selector: 'app-header',
@@ -8,55 +11,77 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  private authenticated: boolean = false;
+
+  constructor(private router: Router, private tokenService: TokenService, private uiChangeRef: ChangeDetectorRef) { 
+    this.authenticated = this.tokenService.authenticated;
+  }
 
   ngOnInit() {
-    let url = window.location.pathname.split('/')[1];
-    console.log(url);
-    switch(url){
-      case "":
-      case "home":{
-        let navItem = document.getElementById("home");
-        navItem.classList.add("active");
-        break;
-      }
-      case "signin":{
-        let navItem = document.getElementById("signin");
-        navItem.classList.add("active");
-        break;
-      }
-      case "password":{       
-        break;
-      }
-      case "signup":{
-        let navItem = document.getElementById("signup");
-        navItem.classList.add("active");
-        break;
-      }
-      case "complaint":{
-        let navItem = document.getElementById("complaint");
-        navItem.classList.add("active");
-        break;
-      }
-      case "contactus":{
-        let navItem = document.getElementById("contactus");
-        navItem.classList.add("active");
-        break;
-      }
-      case "profile":{
-        let navItem = document.getElementById("profile");
-        navItem.classList.add("active");
-        break;
-      }
-      case "tracker":{
-        let navItem = document.getElementById("tracker");
-        navItem.classList.add("active");
-        break;
-      }
-      default:{
-        this.router.navigate(["error"]);
-      }
+    let tokenExpired = this.tokenService.isTokenExpired();
+    if(tokenExpired){
+      this.logout();
     }
+    this.tokenService.authenticationSet.subscribe(
+      (token)=>{
+        this.authenticated = this.tokenService.authenticated;
+        this.uiChangeRef.detectChanges();
+      }
+    );
+
+    // this.router.events
+    // .filter(event => event instanceof NavigationStart)
+    // .subscribe((event:NavigationStart) => {
+    //   let activeLink = document.getElementsByClassName("active");
+    //   if(activeLink.length>0){
+    //     activeLink[0].classList.remove("active");
+    //   }
+    //   let url = event.url.split('/')[1];    
+    //   switch(url){
+    //   case "":
+    //   case "home":{
+    //     let navItem = document.getElementById("home");
+    //     navItem.classList.add("active");
+    //     break;
+    //   }
+    //   case "signin":{
+    //     let navItem = document.getElementById("signin");
+    //     navItem.classList.add("active");
+    //     break;
+    //   }
+    //   case "password":{       
+    //     break;
+    //   }
+    //   case "signup":{
+    //     let navItem = document.getElementById("signup");
+    //     navItem.classList.add("active");
+    //     break;
+    //   }
+    //   case "complaint":{
+    //     let navItem = document.getElementById("complaint");
+    //     navItem.classList.add("active");
+    //     break;
+    //   }
+    //   case "contactus":{
+    //     let navItem = document.getElementById("contactus");
+    //     navItem.classList.add("active");
+    //     break;
+    //   }
+    //   case "profile":{
+    //     let navItem = document.getElementById("profile");
+    //     navItem.classList.add("active");
+    //     break;
+    //   }
+    //   case "tracker":{
+    //     let navItem = document.getElementById("tracker");
+    //     navItem.classList.add("active");
+    //     break;
+    //   }
+    //   default:{
+    //     this.router.navigate(["error"]);
+    //   }
+    // }
+    // });    
   }
 
   public collapseMenu(){
@@ -66,11 +91,9 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  public makeLinkActive($event:any){
-    let activeLink = document.getElementsByClassName("active");
-    if(activeLink.length>0){
-      activeLink[0].classList.remove("active");
-    }
-    $event.target.classList.add("active");
+  public logout(){
+    this.authenticated = false;
+    this.tokenService.removeToken();
   }
+
 }

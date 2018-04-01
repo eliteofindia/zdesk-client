@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeskService } from './service/desk.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private desk: DeskService) { }
 
   ngOnInit() {
+    this.desk.getServices().subscribe(
+      (data)=>{
+        console.log(data);
+      },
+      (err)=>{
+        console.log(err);
+      }
+    );
   }
 
 }
