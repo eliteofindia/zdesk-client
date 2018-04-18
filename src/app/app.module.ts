@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { CookieService } from 'ng2-cookies';
 
 
 
@@ -27,23 +28,23 @@ import { AuthGuard } from './signin/guard/auth.guard';
 import { ProfileGuard } from './profile/gaurd/profile.guard';
 import { DeskService } from './profile/service/desk.service';
 
+import { tokenGetter } from './common/service/token.service';
+
 @NgModule({
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('resources/ngsw-worker.js', {enabled: environment.production}),
     AppRoutingModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: ()=>{
-          return sessionStorage.getItem("JWT_TOKEN");
-        },
+        tokenGetter: tokenGetter,
         headerName: 'Authorization',
-        authScheme: '',
+        authScheme: 'Bearer',
         skipWhenExpired: true,
-        whitelistedDomains: ['localhost:8080'],
+        whitelistedDomains: ['localhost:8080',"api.zdesk.in"],
         blacklistedRoutes: ['localhost:3001/auth/']
       }
     })
@@ -61,7 +62,7 @@ import { DeskService } from './profile/service/desk.service';
     
     routingcomponents,         
   ],
-  providers: [AuthService, TokenService, AuthGuard, ProfileGuard, DeskService],
+  providers: [AuthService, TokenService, AuthGuard, ProfileGuard, DeskService, CookieService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

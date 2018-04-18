@@ -16,6 +16,13 @@ export class TokenService {
     }
   }
 
+  setAuthentication(){
+    let token = this.getToken();
+    if (token != undefined){
+      this.authenticated = true;
+      this.authenticationSet.emit(token);
+    }
+  }
   public setToken(token: string) {
     sessionStorage.setItem(SessionConstants.JWTToken, token);
     this.authenticated = true;
@@ -44,4 +51,8 @@ export class TokenService {
     return this.jwtService.getTokenExpirationDate(this.getToken());
   }
 
+}
+
+export function tokenGetter(){
+  return sessionStorage.getItem("JWT_TOKEN");
 }

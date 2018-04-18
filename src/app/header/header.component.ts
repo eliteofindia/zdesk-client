@@ -11,16 +11,20 @@ import { TokenService } from '../common/service/token.service';
 })
 export class HeaderComponent implements OnInit {
 
-  private authenticated: boolean = false;
+  public authenticated: boolean = false;
 
   constructor(private router: Router, private tokenService: TokenService, private uiChangeRef: ChangeDetectorRef) { 
     this.authenticated = this.tokenService.authenticated;
   }
 
   ngOnInit() {
+    if(this.tokenService.getToken() != null){
     let tokenExpired = this.tokenService.isTokenExpired();
     if(tokenExpired){
       this.logout();
+    }
+    else{
+      this.authenticated = this.tokenService.authenticated;
     }
     this.tokenService.authenticationSet.subscribe(
       (token)=>{
@@ -28,6 +32,7 @@ export class HeaderComponent implements OnInit {
         this.uiChangeRef.detectChanges();
       }
     );
+  }
 
     // this.router.events
     // .filter(event => event instanceof NavigationStart)
