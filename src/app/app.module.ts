@@ -41,8 +41,8 @@ import { tokenGetter } from './common/service/token.service';
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        headerName: 'Authorization',
-        authScheme: 'Bearer',
+        headerName: 'AUTHORIZATION',
+        authScheme: 'Bearer ',
         skipWhenExpired: true,
         whitelistedDomains: ['localhost:8080',"api.zdesk.in"],
         blacklistedRoutes: ['localhost:3001/auth/']
