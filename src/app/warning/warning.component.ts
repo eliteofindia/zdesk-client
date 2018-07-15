@@ -7,23 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WarningComponent implements OnInit {
 
-  public title:string;
-  public warningMsg:string;
+  public title: string;
+  public warningMsg: string;
   public showModal: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this.title = "Sample Title";
-    this.warningMsg = "sample warning message";
+    this.title = 'Sample Title';
+    this.warningMsg = 'sample warning message';
     this.showModal = false;
   }
 
-  dismiss(){
+  dismiss() {
     this.showModal = false;
   }
 
-  openDangerModal(title:string, warningMsg:string){
+  openDangerModal(title: string, warningMsg: string) {
     this.title = title;
     this.warningMsg = warningMsg;
     this.showModal = true;

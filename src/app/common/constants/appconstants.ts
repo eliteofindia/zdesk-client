@@ -1,3 +1,4 @@
-export class SessionConstants{
-    public static JWTToken: string = "JWT_TOKEN";
+export class SessionConstants {
+    public static JWTToken = 'JWT_TOKEN';
+    public static Provider = 'OAUTH_PROVIDER';
 }

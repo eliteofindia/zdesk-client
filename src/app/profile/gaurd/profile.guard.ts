@@ -5,15 +5,14 @@ import { TokenService } from '../../common/service/token.service';
 
 @Injectable()
 export class ProfileGuard implements CanActivate {
-  constructor(private router: Router, private tokenService: TokenService){  }
+  constructor(private router: Router, private tokenService: TokenService) {  }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if(this.tokenService.authenticated)  {        
+      if (this.tokenService.authenticated)  {
         return true;
-      }
-      else{
-        this.router.navigate(["signin"]);
+      } else {
+        this.router.navigate(['signin']);
         return false;
       }
   }

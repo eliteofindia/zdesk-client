@@ -7,21 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessComponent implements OnInit {
 
-  public title:string;
-  public successMsg:string;
+  public title: string;
+  public successMsg: string;
   public showModal: boolean;
   constructor() { }
   ngOnInit() {
-    this.title = "Sample Title";
-    this.successMsg = "sample error message";
+    this.title = 'Sample Title';
+    this.successMsg = 'sample error message';
     this.showModal = false;
   }
 
-  dismiss(){
+  dismiss() {
     this.showModal = false;
   }
 
-  openDangerModal(title:string, errorMsg:string){
+  openDangerModal(title: string, errorMsg: string) {
     this.title = title;
     this.successMsg = errorMsg;
     this.showModal = true;

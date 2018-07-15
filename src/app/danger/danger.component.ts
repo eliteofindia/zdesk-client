@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-danger',
@@ -7,21 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DangerComponent implements OnInit {
 
-  public title:string;
-  public errorMsg:string;
+  public title: string;
+  public errorMsg: string;
   public showModal: boolean;
-  constructor() { }
+  constructor() {}
   ngOnInit() {
-    this.title = "Sample Title";
-    this.errorMsg = "sample error message";
+    this.title = 'Sample Title';
+    this.errorMsg = 'sample error message';
     this.showModal = false;
   }
 
-  dismiss(){
+  dismiss() {
     this.showModal = false;
   }
 
-  openDangerModal(title:string, errorMsg:string){
+  openDangerModal(title: string, errorMsg: string) {
     this.title = title;
     this.errorMsg = errorMsg;
     this.showModal = true;

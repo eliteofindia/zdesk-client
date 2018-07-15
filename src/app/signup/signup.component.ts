@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  public registerUser(signupForm: NgForm){
+  public registerUser(signupForm: NgForm) {
     console.log(signupForm);
   }
 

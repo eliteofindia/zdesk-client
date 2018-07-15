@@ -11,9 +11,9 @@ import { Credential } from '../../common/model/credential';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  
+
   public getJWTToken(credential: Credential) {
     console.log(credential);
-    return this.http.post<JWTToken>(ApiEndpoints.tokenUrl, credential);     
-  }  
+    return this.http.post<JWTToken>(ApiEndpoints.tokenUrl, credential);
+  }
 }

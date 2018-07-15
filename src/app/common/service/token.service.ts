@@ -1,24 +1,24 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { SessionConstants } from '../constants/appconstants';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import {Injectable, EventEmitter} from '@angular/core';
+import {SessionConstants} from '../constants/appconstants';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Injectable()
 export class TokenService {
 
   public authenticationSet: EventEmitter<string> = new EventEmitter<string>();
-  public authenticated: boolean = false;
+  public authenticated = false;
   public jwtService: JwtHelperService = new JwtHelperService();
   constructor() {
-    let token = this.getToken();
-    if (token != undefined){
+    const token = this.getToken();
+    if (token != undefined) {
       this.authenticated = true;
       this.authenticationSet.emit(token);
     }
   }
 
-  setAuthentication(){
-    let token = this.getToken();
-    if (token != undefined){
+  setAuthentication() {
+    const token = this.getToken();
+    if (token != undefined) {
       this.authenticated = true;
       this.authenticationSet.emit(token);
     }
@@ -30,29 +30,34 @@ export class TokenService {
   }
 
   public getToken() {
-    return sessionStorage.getItem(SessionConstants.JWTToken);
+    const token = sessionStorage.getItem(SessionConstants.JWTToken);
+    if (!this.jwtService.isTokenExpired(token)) {
+      return token;
+    } else {
+      this.removeToken();
+    }
   }
 
   public removeToken() {
     sessionStorage.removeItem(SessionConstants.JWTToken);
     this.authenticated = false;
-    this.authenticationSet.emit(this.getToken());
+    this.authenticationSet.emit(null);
   }
 
-  public decodeToken(){
+  public decodeToken() {
     return this.jwtService.decodeToken(this.getToken());
   }
 
-  public isTokenExpired(){
+  public isTokenExpired() {
     return this.jwtService.isTokenExpired(this.getToken());
   }
 
-  public getTokenExpiryDate(){
+  public getTokenExpiryDate() {
     return this.jwtService.getTokenExpirationDate(this.getToken());
   }
 
 }
 
-export function tokenGetter(){
-  return sessionStorage.getItem("JWT_TOKEN");
+export function tokenGetter() {
+  return sessionStorage.getItem('JWT_TOKEN');
 }

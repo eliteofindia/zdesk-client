@@ -7,17 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressComponent implements OnInit {
 
-  private showProgress: boolean = false;
+  private showProgress = false;
   constructor() { }
 
   ngOnInit() {
   }
 
-  public closeProgress(){
+  public closeProgress() {
     this.showProgress = false;
   }
 
-  public getProgressStatus(){
+  public getProgressStatus() {
     return this.showProgress;
   }
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
+import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
+import {Router, NavigationStart} from '@angular/router';
 
 import 'rxjs/add/operator/filter';
-import { TokenService } from '../common/service/token.service';
+import {TokenService} from '../common/service/token.service';
 
 @Component({
   selector: 'app-header',
@@ -11,28 +11,27 @@ import { TokenService } from '../common/service/token.service';
 })
 export class HeaderComponent implements OnInit {
 
-  public authenticated: boolean = false;
+  public authenticated = false;
 
-  constructor(private router: Router, private tokenService: TokenService, private uiChangeRef: ChangeDetectorRef) { 
+  constructor(private router: Router, private tokenService: TokenService, private uiChangeRef: ChangeDetectorRef) {
     this.authenticated = this.tokenService.authenticated;
   }
 
   ngOnInit() {
-    if(this.tokenService.getToken() != null){
-    let tokenExpired = this.tokenService.isTokenExpired();
-    if(tokenExpired){
-      this.logout();
-    }
-    else{
-      this.authenticated = this.tokenService.authenticated;
-    }
-    this.tokenService.authenticationSet.subscribe(
-      (token)=>{
+    if (this.tokenService.getToken() != null) {
+      const tokenExpired = this.tokenService.isTokenExpired();
+      if (tokenExpired) {
+        this.logout();
+      } else {
         this.authenticated = this.tokenService.authenticated;
-        this.uiChangeRef.detectChanges();
       }
-    );
-  }
+      this.tokenService.authenticationSet.subscribe(
+        (token) => {
+          this.authenticated = this.tokenService.authenticated;
+          this.uiChangeRef.detectChanges();
+        }
+      );
+    }
 
     // this.router.events
     // .filter(event => event instanceof NavigationStart)
@@ -41,7 +40,7 @@ export class HeaderComponent implements OnInit {
     //   if(activeLink.length>0){
     //     activeLink[0].classList.remove("active");
     //   }
-    //   let url = event.url.split('/')[1];    
+    //   let url = event.url.split('/')[1];
     //   switch(url){
     //   case "":
     //   case "home":{
@@ -54,7 +53,7 @@ export class HeaderComponent implements OnInit {
     //     navItem.classList.add("active");
     //     break;
     //   }
-    //   case "password":{       
+    //   case "password":{
     //     break;
     //   }
     //   case "signup":{
@@ -86,17 +85,17 @@ export class HeaderComponent implements OnInit {
     //     this.router.navigate(["error"]);
     //   }
     // }
-    // });    
+    // });
   }
 
-  public collapseMenu(){
-    let menuIcon = document.getElementsByClassName("show");
-    if(menuIcon.length>0){
-      document.getElementById("toggle").click();
+  public collapseMenu() {
+    const menuIcon = document.getElementsByClassName('show');
+    if (menuIcon.length > 0) {
+      document.getElementById('toggle').click();
     }
   }
 
-  public logout(){
+  public logout() {
     this.authenticated = false;
     this.tokenService.removeToken();
   }
