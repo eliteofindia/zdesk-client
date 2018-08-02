@@ -1,0 +1,102 @@
+<div class="ui-fluid">
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <div class="ui-messages ui-widget ui-corner-all ui-messages-info" style="margin: 0 0 1em 0; display: block; text-align: center">
+                <span class="ui-messages-icon fa fa-fw fa-2x fa-cog"></span>
+                <ul>
+                    <li>
+                        <h2 class="ui-messages-detail">ZDesk Login!</h2>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card card-w-title">
+                <div class="ui-messages ui-widget ui-corner-all ui-messages-info" style="margin: 0 0 1em 0; display: block; text-align: center">
+                    <span class="ui-messages-icon fa fa-fw fa-2x fa-info"></span>
+                    <ul>
+                        <li>
+                            <span class="ui-messages-detail">Provide Credentials</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <form #signinFrom="ngForm" autocomplete="off">
+                    <div class="ui-g">
+
+                        <div class="ui-g-12 ui-md-6">
+                            <label>UserName</label>
+                        </div>
+
+                        <div class="ui-g-12 ui-md-6">
+                            <input type="text" ngModel name="username" placeholder="UserName" pInputText>
+                        </div>
+
+                        <div class="ui-g-12 ui-md-6">
+                            <label>Password</label>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <input type="text" ngModel name="password" placeholder="password" pPassword>
+                        </div>
+
+                        <div class="ui-g-12 ui-md-6">
+                            <label>User Category</label>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <!-- <p-dropdown [options]="category" [style]="{'width':'100%'}" ngModel name="category" optionLabel="name"></p-dropdown> -->
+                            <!-- <p-radioButton name="category" value="NGO" inputId="ngo" label="Organisation"></p-radioButton>
+                            <p-radioButton name="category" value="VOL" inputId="vol" label="Volunteer"></p-radioButton> -->
+                            <div class="ui-g" style="width:250px;margin-bottom:10px">
+                                <div class="ui-g-12">
+                                    <p-radioButton ngModel name="category" value="ngo" label="Organisation"  inputId="opt1"></p-radioButton>
+                                </div>
+                                <div class="ui-g-12">
+                                    <p-radioButton ngModel name="category" value="vol" label="Volunteer" inputId="opt2"></p-radioButton>
+                                </div>                                
+                            </div>
+                        </div>
+
+                        <div class="ui-g-12 ui-md-6">
+                            <p-button (onClick)="clearLoginFrom(signinFrom)" icon="fa fa-trash" style="display: contents !important" styleClass="ui-button-secondary"
+                                label="cancel"></p-button>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <p-button (onClick)="attemptSignin(signinFrom)" icon="fa fa-unlock" style="display: contents !important" styleClass="ui-button-secondary"
+                                label="Proceed"></p-button>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="card card-w-title">
+                <div class="ui-messages ui-widget ui-corner-all ui-messages-info" style="margin: 0 0 1em 0; display: block; text-align: center">
+                    <span class="ui-messages-icon fa fa-fw fa-2x fa-info"></span>
+                    <ul>
+                        <li>
+                            <span class="ui-messages-detail">Signin via social media</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-6">
+                        <p-button (onClick)="handleGoogleLogin()" style="display: contents !important" icon="fa fa-google" styleClass="ui-button-danger"
+                            label="Google"></p-button>
+                    </div>
+                    <div class="ui-g-12 ui-md-6">
+                        <p-button (onClick)="handleTwitterLogin()" style="display: contents !important" icon="fa fa-twitter" styleClass="ui-button-info"
+                            label="Twitter"></p-button>
+                    </div>
+                    <div class="ui-g-12 ui-md-6">
+                        <p-button (onClick)="handleFacebookLogin()" style="display: contents !important" icon="fa fa-facebook" styleClass="ui-button-primary"
+                            label="Facebook"></p-button>
+                    </div>
+                    <div class="ui-g-12 ui-md-6">
+                        <p-button (onClick)="handleGitHubLogin()" style="display: contents !important" icon="fa fa-github" styleClass="ui-button-primary"
+                            label="Github"></p-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

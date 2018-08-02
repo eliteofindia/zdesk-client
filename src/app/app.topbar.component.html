@@ -1,0 +1,13 @@
+<div class="layout-topbar">
+  <div class="layout-topbar-content">
+    <img src="assets/layout/images/logo.png" class="topbar-logo">   
+    <a href="#" id="menu-btn" class="menu-btn" (click)="app.onMobileMenuButton($event)">
+      <i class="fa fa-bars"></i>
+    </a> 
+    <span style="float: right;">
+      <p-button (click)="navigateSignIn()" icon="fa fa-user" styleClass="ui-button-secondary" label="SignIn"></p-button>
+      <p-button (click)="navigateSignUp()" icon="fa fa-user-plus" styleClass="ui-button-secondary" label="SignUp"></p-button>
+    </span>
+
+  </div>
+</div>

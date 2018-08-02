@@ -1,5 +1,8 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<app-header></app-header>
-    <router-outlet></router-outlet>   
-<app-footer></app-footer>
-<app-progress></app-progress>
+<div class="layout-wrapper">
+    <app-topbar></app-topbar>
+    <app-sidebar></app-sidebar>
+
+    <div class="layout-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>
